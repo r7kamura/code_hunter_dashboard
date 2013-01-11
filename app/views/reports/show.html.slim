@@ -1,1 +1,6 @@
-= @report
+- %w(brakeman rails_best_practices).each do |type|
+  section class=type
+    h1= type.humanize
+    ul.warnings
+      - @report.send(type).each do |warning|
+        = render "warning", :warning => warning
