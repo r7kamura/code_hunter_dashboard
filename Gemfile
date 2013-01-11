@@ -15,6 +15,7 @@ group :test do
   gem "rspec", ">=2.12.0"
   gem "rspec-rails", ">=2.12.0"
   gem "factory_girl_rails", "~> 4.0"
+  gem "response_code_matchers"
 end
 
 group :assets do

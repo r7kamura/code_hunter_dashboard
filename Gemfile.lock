@@ -96,6 +96,8 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    response_code_matchers (0.0.2)
+      rack
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -149,6 +151,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 3.2.11)
+  response_code_matchers
   rspec (>= 2.12.0)
   rspec-rails (>= 2.12.0)
   sass-rails (~> 3.2.3)
