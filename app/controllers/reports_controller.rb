@@ -1,10 +1,10 @@
-class WarningsController < ApplicationController
+class ReportsController < ApplicationController
   protect_from_forgery
 
   before_filter :require_warnings_as_json, only: :create
 
   def create
-    Warning.mass_create(@warnings)
+    Report.create_with_warnings(@warnings)
     head :ok
   end
 

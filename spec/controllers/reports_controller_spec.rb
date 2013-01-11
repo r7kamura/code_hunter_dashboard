@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe WarningsController do
+describe ReportsController do
   describe "#create" do
     subject do
       post :create, :warnings => warnings
