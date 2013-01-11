@@ -9,11 +9,11 @@ class CreateWarnings < ActiveRecord::Migration
       t.string :email
       t.datetime :modified_at
       t.integer :line
+      t.references :report
 
       t.timestamps
     end
 
-    add_index :warnings, [:modified_at, :created_at, :service]
-    add_index :warnings, [:modified_at, :author]
+    add_index :warnings, [:report_id, :modified_at]
   end
 end

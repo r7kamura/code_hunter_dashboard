@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111063924) do
+ActiveRecord::Schema.define(:version => 20130111080017) do
+
+  create_table "reports", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "warnings", :force => true do |t|
     t.string   "service"
@@ -22,11 +27,11 @@ ActiveRecord::Schema.define(:version => 20130111063924) do
     t.string   "email"
     t.datetime "modified_at"
     t.integer  "line"
+    t.integer  "report_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "warnings", ["modified_at", "author"], :name => "index_warnings_on_modified_at_and_author"
-  add_index "warnings", ["modified_at", "created_at", "service"], :name => "index_warnings_on_modified_at_and_created_at_and_service"
+  add_index "warnings", ["report_id", "modified_at"], :name => "index_warnings_on_report_id_and_modified_at"
 
 end
