@@ -17,7 +17,7 @@ class Report < ActiveRecord::Base
   end
 
   def self.latest
-    descending.first
+    descending.first or raise ActiveRecord::RecordNotFound
   end
 
   def brakeman

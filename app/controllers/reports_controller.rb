@@ -4,15 +4,20 @@ class ReportsController < ApplicationController
   before_filter :require_warnings_as_json, only: :create
 
   def index
-    @reports = Report.descending.limit(10)
+    @reports = Report.descending.limit(20)
   end
 
   def show
     @report = Report.find(params[:id])
   end
 
+  def dashboard
+    @reports = Report.descending.limit(100)
+    @latest  = Report.latest
+  end
+
   def latest
-    @report = Report.latest or raise ActiveRecord::RecordNotFound
+    @report = Report.latest
     render :show
   end
 

@@ -3,6 +3,7 @@ CodeHunterDashboard::Application.routes.draw do
 
   resources :reports, :only => [:index, :show, :create] do
     collection do
+      get :dashboard
       get :latest
     end
   end
