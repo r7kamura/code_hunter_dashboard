@@ -8,7 +8,7 @@ class ReportsController < ApplicationController
   end
 
   def latest
-    @report = Report.latest
+    @report = Report.latest or raise ActiveRecord::RecordNotFound
     render :show
   end
 
