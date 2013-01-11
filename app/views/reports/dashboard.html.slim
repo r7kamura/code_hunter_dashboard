@@ -1,3 +1,14 @@
-.charts
+ul.charts
   - %w[brakeman rails_best_practices].each do |service|
-    = render "chart", :service => service, :reports => @reports
+    li
+      = render "chart", :service => service, :reports => @reports
+
+.warnings_container
+  h3 Recently added
+  ul.warnings
+    - @report.warnings.limit(10).each do |warning|
+      li.warning
+        .message
+          = link_to warning.message, warning
+        .metadata
+          | #{warning.modified_at.to_date} / #{warning.author}

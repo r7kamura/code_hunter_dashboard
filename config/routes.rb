@@ -1,5 +1,5 @@
 CodeHunterDashboard::Application.routes.draw do
-  root :to => "reports#latest"
+  root :to => "reports#dashboard"
 
   resources :reports, :only => [:index, :show, :create] do
     collection do
@@ -7,4 +7,6 @@ CodeHunterDashboard::Application.routes.draw do
       get :latest
     end
   end
+
+  resources :warnings, :only => :show
 end

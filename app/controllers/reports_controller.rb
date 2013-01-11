@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
 
   def dashboard
     @reports = Report.descending.limit(100)
-    @latest  = Report.latest
+    @report  = Report.latest
   end
 
   def latest

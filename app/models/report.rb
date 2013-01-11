@@ -5,8 +5,7 @@ class Report < ActiveRecord::Base
     order("created_at DESC")
   }
 
-  delegate :brakeman, :to => :warnings
-  delegate :rails_best_practices, :to => :warnings
+  delegate :brakeman, :rails_best_practices, :to => :warnings
 
   def self.create_with_warnings(warning_attributes_set)
     create.tap do |report|
