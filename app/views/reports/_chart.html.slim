@@ -1,4 +1,6 @@
-.chart class=service
-  h3= service.humanize
+.chart.section class=service
+  h3
+    i.icon-bar-chart
+    = service.humanize
   .csv data-json=to_csv(reports, "#{service}_count").to_json
-  .graph
+  .graph style="width: 100%"

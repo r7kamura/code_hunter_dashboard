@@ -1,10 +1,15 @@
 doctype html
 html
   head
-    title Code Hunter Dashboard
+    title CodeHunter
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
 
   body class=absolute_css_class_names
-    = yield
+    header
+      h1
+        = link_to "✘╹◡╹✘", root_path
+
+    .main
+      = yield

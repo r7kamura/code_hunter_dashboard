@@ -1,14 +1,16 @@
-ul.charts
+.charts_container
   - %w[brakeman rails_best_practices].each do |service|
-    li
-      = render "chart", :service => service, :reports => @reports
+    = render "chart", :service => service, :reports => @reports
 
-.warnings_container
-  h3 Recently added
+.warnings_container.section
+  h3
+    i.icon-cloud-upload
+    | Recently added
   ul.warnings
     - @report.warnings.limit(10).each do |warning|
       li.warning
-        .message
-          = link_to warning.message, warning
-        .metadata
-          | #{warning.modified_at.to_date} / #{warning.author}
+        i.icon-bolt
+        ' #{time_ago_in_words(warning.modified_at)} ago
+        =' link_to warning.author, "/"
+        ' added
+        = link_to warning.message, warning

@@ -1,0 +1,48 @@
+body {
+  width: 920px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 50px;
+
+  h1 {
+    line-height: 1;
+    font-size: 30px;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+i[class^="icon-"] {
+  line-height: 1.2;
+}
+
+.reports_controller.dashboard_action {
+  h3 {
+    line-height: 1.3;
+    i {
+      margin-right: .8em;
+    }
+  }
+
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .warnings {
+    margin: 0;
+    list-style: none;
+
+    i {
+      color: #ccc;
+    }
+  }
+}
