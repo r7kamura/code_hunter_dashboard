@@ -1,6 +1,13 @@
 require "spec_helper"
 
 describe ReportsController do
+  describe "#index" do
+    subject do
+      get :index
+    end
+    it { should be_ok }
+  end
+
   describe "#show" do
     subject do
       get :show, :id => Report.create.id
@@ -12,6 +19,11 @@ describe ReportsController do
     subject do
       get :latest
     end
+
+    before do
+      Report.create
+    end
+
     it { should be_ok }
   end
 

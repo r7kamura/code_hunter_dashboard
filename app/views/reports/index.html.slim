@@ -1,0 +1,4 @@
+ul
+  - @reports.each do |report|
+    li
+      = link_to report.created_at, report

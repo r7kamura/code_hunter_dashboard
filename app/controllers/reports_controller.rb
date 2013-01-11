@@ -3,6 +3,10 @@ class ReportsController < ApplicationController
 
   before_filter :require_warnings_as_json, only: :create
 
+  def index
+    @reports = Report.descending.limit(10)
+  end
+
   def show
     @report = Report.find(params[:id])
   end
