@@ -5,6 +5,7 @@ gem "mysql2"
 gem "jquery-rails"
 gem "slim"
 gem "thin"
+gem "font-awesome-sass-rails"
 
 group :development do
   gem "pry-rails"
