@@ -4,6 +4,7 @@ gem "rails", "3.2.11"
 gem "mysql2"
 gem "jquery-rails"
 gem "slim"
+gem "thin"
 
 group :development do
   gem "pry-rails"
