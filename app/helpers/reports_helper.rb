@@ -1,8 +1,8 @@
 module ReportsHelper
-  def convert_reports_to_csv(reports)
+  def to_csv(reports, counter_column_name)
     rows = []
-    rows << ["Date,Count"]
-    rows << reports.map {|report| "#{report.created_at.to_date},#{report.warnings_count}" }
+    rows << ["Time,Count"]
+    rows << reports.map {|report| "#{report.created_at},#{report.send(counter_column_name)}" }
     rows.join("\n")
   end
 end

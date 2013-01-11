@@ -1,0 +1,4 @@
+.chart class=service
+  h1= service.humanize
+  .csv data-json=to_csv(reports, "#{service}_count").to_json
+  .graph

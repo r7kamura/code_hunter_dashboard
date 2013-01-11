@@ -1,4 +1,3 @@
-.stats
-  .csv data-json=convert_reports_to_csv(@reports).to_json
-
-  .graph
+.charts
+  - %w[brakeman rails_best_practices].each do |service|
+    = render "chart", :service => service, :reports => @reports
