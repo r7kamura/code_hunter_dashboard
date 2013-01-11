@@ -3,6 +3,19 @@ source "https://rubygems.org"
 gem "rails", "3.2.11"
 gem "mysql2"
 gem "jquery-rails"
+gem "slim"
+
+group :development do
+  gem "pry-rails"
+  gem "quiet_assets"
+  gem "tapp"
+end
+
+group :test do
+  gem "rspec", ">=2.12.0"
+  gem "rspec-rails", ">=2.12.0"
+  gem "factory_girl_rails", "~> 4.0"
+end
 
 group :assets do
   gem "sass-rails",   "~> 3.2.3"
