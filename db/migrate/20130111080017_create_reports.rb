@@ -4,5 +4,7 @@ class CreateReports < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :reports, :created_at
   end
 end

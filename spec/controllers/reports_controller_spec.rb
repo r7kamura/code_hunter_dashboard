@@ -1,6 +1,20 @@
 require "spec_helper"
 
 describe ReportsController do
+  describe "#show" do
+    subject do
+      get :show, :id => Report.create.id
+    end
+    it { should be_ok }
+  end
+
+  describe "#latest" do
+    subject do
+      get :latest
+    end
+    it { should be_ok }
+  end
+
   describe "#create" do
     subject do
       post :create, :warnings => warnings

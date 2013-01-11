@@ -1,3 +1,9 @@
 CodeHunterDashboard::Application.routes.draw do
-  resources :reports, only: :create
+  root :to => "reports#latest"
+
+  resources :reports, :only => [:show, :create] do
+    collection do
+      get :latest
+    end
+  end
 end
