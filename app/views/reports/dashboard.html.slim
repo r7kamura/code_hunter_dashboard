@@ -6,11 +6,9 @@
   h3
     i.icon-cloud-upload
     | Recently added
-  ul.warnings
+  table.warnings.table
     - @report.warnings.limit(10).each do |warning|
-      li.warning
-        i.icon-bolt
-        ' #{time_ago_in_words(warning.modified_at)} ago
-        =' link_to warning.author, author_report_warnings_path(:report_id => @report.id, :author => warning.author)
-        ' added
-        = link_to warning.message, warning
+      tr
+        td= warning.modified_at.to_date
+        td= link_to warning.author, author_report_warnings_path(:report_id => @report.id, :author => warning.author)
+        td= link_to warning.message, warning
