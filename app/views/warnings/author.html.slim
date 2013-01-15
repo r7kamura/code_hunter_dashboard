@@ -1,13 +1,5 @@
 h3
+  i.icon-user
   = params[:author]
 
-table.warnings.table
-  thead
-    tr
-      th commit
-      th path
-  tbody
-    - @warnings.each do |warning|
-      tr
-        td= warning.modified_at.to_date
-        td= link_to warning.path, warning
+= render "warnings/warnings", :warnings => @warnings

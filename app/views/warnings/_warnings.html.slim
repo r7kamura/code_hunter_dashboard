@@ -1,0 +1,15 @@
+.tabbed_warnings
+  ul.nav.nav-tabs
+    li.active= link_to "all", ""
+    li= link_to "brakeman", ""
+    li= link_to "rails_best_practices", ""
+  table.table
+    thead
+      tr
+        th commited
+        th path
+    tbody
+      - warnings.each do |warning|
+        tr.all class=warning.service
+          td= warning.modified_at.to_date
+          td= link_to warning.path, warning

@@ -13,21 +13,8 @@
       th rails_best_practices count
       td= @report.rails_best_practices_count
 
-.warnings.section
+.section
   h3
-    i.icon-list-ol
+    i.icon-list
     | Warnings
-  ul.nav.nav-tabs
-    li.active= link_to "all", ""
-    li= link_to "brakeman", ""
-    li= link_to "rails_best_practices", ""
-  table.table
-    thead
-      tr
-        th commited
-        th path
-    tbody
-      - @report.warnings.each do |warning|
-        tr.all class=warning.service
-          td= warning.modified_at.to_date
-          td= link_to warning.path, warning
+  = render "warnings/warnings", :warnings => @report.warnings
