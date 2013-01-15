@@ -7,8 +7,14 @@
     i.icon-cloud-upload
     | Recently added
   table.warnings.table
-    - @report.warnings.limit(10).each do |warning|
+    thead
       tr
-        td= warning.modified_at.to_date
-        td= link_to warning.author, author_report_warnings_path(:report_id => @report.id, :author => warning.author)
-        td= link_to warning.message, warning
+        th commit
+        th author
+        th message
+    tbody
+      - @report.warnings.limit(10).each do |warning|
+        tr
+          td= warning.modified_at.to_date
+          td= link_to warning.author, author_report_warnings_path(:report_id => @report.id, :author => warning.author)
+          td= link_to warning.message, warning

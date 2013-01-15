@@ -6,10 +6,12 @@
   table.table
     thead
       tr
-        th commited
+        th commit
+        th author
         th path
     tbody
       - warnings.each do |warning|
         tr.all class=warning.service
-          td= warning.modified_at.to_date
-          td= link_to warning.path, warning
+          td.date= warning.modified_at.to_date
+          td.author= link_to warning.author, author_report_warnings_path(:report_id => @report.id, :author => warning.author)
+          td.path= link_to warning.path, warning
