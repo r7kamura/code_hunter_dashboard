@@ -5,19 +5,31 @@ body {
 }
 
 header {
+  overflow: hidden;
   margin-bottom: 50px;
 
   h1 {
+    float: left;
     line-height: 1;
     font-size: 30px;
+
+    a {
+      color: inherit;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
   }
 
-  a {
-    color: inherit;
-  }
-
-  a:hover {
-    text-decoration: none;
+  .links {
+    float: right;
+    line-height: 50px;
+    list-style: none;
+    li {
+      display: inline-block;
+      margin-right: 1em;
+    }
   }
 }
 

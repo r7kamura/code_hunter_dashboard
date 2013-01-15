@@ -1,4 +1,16 @@
-ul
-  - @reports.each do |report|
-    li
-      = link_to report.created_at, report
+.section
+  h3
+    i.icon-list
+    | Reports
+  table.table
+    thead
+      tr
+        th created_at
+        th brakeman
+        th rails_best_practices
+    tbody
+      - @reports.each do |report|
+        tr
+          td= link_to report.created_at, report
+          td= report.brakeman_count
+          td= report.rails_best_practices_count
