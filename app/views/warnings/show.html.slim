@@ -26,3 +26,6 @@
       tr
         td detected at
         td= @warning.report.created_at
+      tr
+        td report_id
+        td= link_to @warning.report_id, @warning.report
