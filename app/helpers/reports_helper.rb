@@ -6,16 +6,6 @@ module ReportsHelper
     rows.join("\n")
   end
 
-  def to_commit_week_count_csv(warnings)
-    hash = {}
-    hash.default = 0
-    warnings.each {|warning| hash[warning.modified_at.to_date.beginning_of_week] += 1 }
-    rows = []
-    rows << "Time,Count"
-    rows += hash.map {|date, count| "#{date},#{count}" }
-    rows.join("\n")
-  end
-
   def rank_by_author_count(warnings)
     ranks = {}
     ranks.default = 0

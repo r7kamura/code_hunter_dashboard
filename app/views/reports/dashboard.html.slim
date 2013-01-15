@@ -13,7 +13,7 @@
         th author
         th message
     tbody
-      - @report.warnings.limit(10).each do |warning|
+      - @report.warnings.limit(20).each do |warning|
         tr
           td= warning.modified_at.to_date
           td= link_to warning.author, author_report_warnings_path(:report_id => @report.id, :author => warning.author)
