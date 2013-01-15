@@ -2,4 +2,15 @@ h3
   i.icon-user
   = params[:author]
 
-= render "warnings/warnings", :warnings => @warnings
+
+.summary.section
+  table.table.table-bordered.table-striped.report
+    tr
+      th brakeman count
+      td= @warnings.select {|warning| warning.service == "brakeman" }.count
+    tr
+      th rails_best_practices count
+      td= @warnings.select {|warning| warning.service == "rails_best_practices" }.count
+
+.warnings.section
+  = render "warnings/warnings", :warnings => @warnings, :report => @report

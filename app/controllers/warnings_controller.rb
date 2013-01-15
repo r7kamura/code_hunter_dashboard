@@ -4,6 +4,7 @@ class WarningsController < ApplicationController
   end
 
   def author
-    @warnings = Report.find(params[:report_id]).warnings.where(:author => params[:author])
+    @report = Report.find(params[:report_id])
+    @warnings = @report.warnings.where(:author => params[:author])
   end
 end

@@ -9,7 +9,7 @@ CodeHunterDashboard::Application.routes.draw do
 
     resources :warnings, :only => [] do
       collection do
-        get "author/:author" => :author, :as => :author
+        get ":author" => :author, :as => :author
       end
     end
   end

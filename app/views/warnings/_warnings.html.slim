@@ -13,5 +13,5 @@
       - warnings.each do |warning|
         tr.all class=warning.service
           td.date= warning.modified_at.to_date
-          td.author= link_to warning.author, author_report_warnings_path(:report_id => @report.id, :author => warning.author)
+          td.author= link_to warning.author, author_report_warnings_path(:report_id => report.id, :author => warning.author)
           td.path= link_to warning.path, warning

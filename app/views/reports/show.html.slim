@@ -24,7 +24,7 @@
   h3
     i.icon-list
     | Warnings
-  = render "warnings/warnings", :warnings => @report.warnings
+  = render "warnings/warnings", :report => @report, :warnings => @report.warnings
 
 .authors.section
   h3
