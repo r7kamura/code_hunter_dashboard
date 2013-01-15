@@ -18,3 +18,13 @@
     i.icon-list
     | Warnings
   = render "warnings/warnings", :warnings => @report.warnings
+
+.authors.section
+  h3
+    i.icon-user
+    | Ranking
+  table.table.table-bordered.table-striped.report
+    - rank_by_author_count(@report.warnings).each do |author, count|
+      tr
+        td= link_to author, author_report_warnings_path(:report_id => @report.id, :author => author)
+        td= count
