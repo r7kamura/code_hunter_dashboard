@@ -1,6 +1,33 @@
-- %w[brakeman rails_best_practices].each do |type|
-  section class=type
-    h1= type.humanize
-    ul.warnings
-      - @report.send(type).each do |warning|
-        = render "warning", :warning => warning
+.summary.section
+  h3
+    i.icon-bullhorn
+    | Summary
+  table.table.table-bordered.table-striped.report
+    tr
+      th created
+      td= @report.created_at.to_date
+    tr
+      th brakeman count
+      td= @report.brakeman_count
+    tr
+      th rails_best_practices count
+      td= @report.rails_best_practices_count
+
+.warnings.section
+  h3
+    i.icon-list-ol
+    | Warnings
+  ul.nav.nav-tabs
+    li.active= link_to "all", ""
+    li= link_to "brakeman", ""
+    li= link_to "rails_best_practices", ""
+  table.table
+    thead
+      tr
+        th commited
+        th path
+    tbody
+      - @report.warnings.each do |warning|
+        tr.all class=warning.service
+          td= warning.modified_at.to_date
+          td= link_to warning.path, warning

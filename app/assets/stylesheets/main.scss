@@ -25,18 +25,18 @@ i[class^="icon-"] {
   line-height: 1.2;
 }
 
+h3 {
+  line-height: 1.3;
+  i {
+    margin-right: .8em;
+  }
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
 .reports_controller.dashboard_action {
-  h3 {
-    line-height: 1.3;
-    i {
-      margin-right: .8em;
-    }
-  }
-
-  .section {
-    margin-bottom: 40px;
-  }
-
   .warnings {
     margin: 0;
     list-style: none;
