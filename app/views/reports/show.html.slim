@@ -1,3 +1,10 @@
+.section.chart
+  h3
+    i.icon-bar-chart
+    | Weekly additional pace
+  .csv data-json=to_commit_week_count_csv(@report.warnings).to_json
+  .graph data-roll=400 style="width: 100%"
+
 .summary.section
   h3
     i.icon-bullhorn
@@ -5,7 +12,7 @@
   table.table.table-bordered.table-striped.report
     tr
       th created
-      td= @report.created_at.to_date
+      td= @report.created_at
     tr
       th brakeman count
       td= @report.brakeman_count

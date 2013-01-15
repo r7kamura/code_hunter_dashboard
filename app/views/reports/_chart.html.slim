@@ -2,5 +2,5 @@
   h3
     i.icon-bar-chart
     = service.humanize
-  .csv data-json=to_csv(reports, "#{service}_count").to_json
+  .csv data-json=to_count_csv(reports, "#{service}_count").to_json
   .graph style="width: 100%"
