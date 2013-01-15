@@ -6,6 +6,12 @@ CodeHunterDashboard::Application.routes.draw do
       get :dashboard
       get :latest
     end
+
+    resources :warnings, :only => [] do
+      collection do
+        get "author/:author" => :author, :as => :author
+      end
+    end
   end
 
   resources :warnings, :only => :show
