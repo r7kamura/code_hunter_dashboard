@@ -1,10 +1,11 @@
 CodeHunterDashboard::Application.routes.draw do
-  root :to => "reports#dashboard"
+  root :to => "reports#top"
 
   resources :reports, :only => [:index, :show, :create] do
     collection do
       get :dashboard
       get :latest
+      get :top
     end
 
     resources :warnings, :only => [] do

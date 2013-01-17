@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   validates :nickname, :email, :provider, :presence => true
   validates :uid, :presence => true, :uniqueness => { :scope => :provider }
 
-  has_many :entries
-
   class << self
     def from_omniauth(auth)
       where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
