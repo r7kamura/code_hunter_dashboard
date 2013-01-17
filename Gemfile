@@ -6,6 +6,7 @@ gem "jquery-rails"
 gem "slim"
 gem "thin"
 gem "font-awesome-sass-rails"
+gem "omniauth-github"
 
 group :development do
   gem "pry-rails"
