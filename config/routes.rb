@@ -15,4 +15,10 @@ CodeHunterDashboard::Application.routes.draw do
   end
 
   resources :warnings, :only => :show
+
+  controller :sessions do
+    get "auth/:provider/callback" => :create
+    get "auth/failure"            => :failure
+    delete "signout"              => :destroy
+  end
 end
