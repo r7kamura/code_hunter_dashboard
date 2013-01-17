@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :provider, :uid
+  attr_accessible :nickname, :email, :provider, :uid
 
-  validates :name, :presence => true
-  validates :provider, :presence => true
+  validates :nickname, :email, :provider, :presence => true
   validates :uid, :presence => true, :uniqueness => { :scope => :provider }
 
   has_many :entries
@@ -16,7 +15,8 @@ class User < ActiveRecord::Base
 
     def create_from_omniauth(auth)
       create(
-        :name     => auth["info"]["name"],
+        :nickname => auth["info"]["nickname"],
+        :email    => auth["info"]["email"],
         :provider => auth["provider"],
         :uid      => auth["uid"],
       )

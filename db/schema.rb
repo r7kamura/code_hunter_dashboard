@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(:version => 20130117004741) do
   add_index "reports", ["created_at"], :name => "index_reports_on_created_at"
 
   create_table "users", :force => true do |t|
-    t.string   "name"
+    t.string   "nickname"
+    t.string   "email"
     t.string   "provider"
     t.string   "uid"
     t.datetime "created_at", :null => false
