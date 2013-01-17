@@ -6,7 +6,7 @@ gem "jquery-rails"
 gem "slim"
 gem "thin"
 gem "font-awesome-sass-rails"
-gem "omniauth-github"
+gem "omniauth-github", :git => "git://github.com/intridea/omniauth-github.git"
 gem "settingslogic"
 
 group :development do

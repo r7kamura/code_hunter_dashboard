@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/intridea/omniauth-github.git
+  revision: 81b97006c61b3ea794017bf98dceeff64d18d945
+  specs:
+    omniauth-github (1.0.3)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -84,9 +92,6 @@ GEM
     omniauth (1.1.1)
       hashie (~> 1.2)
       rack
-    omniauth-github (1.0.3)
-      omniauth (~> 1.0)
-      omniauth-oauth2 (~> 1.1)
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -183,7 +188,7 @@ DEPENDENCIES
   font-awesome-sass-rails
   jquery-rails
   mysql2
-  omniauth-github
+  omniauth-github!
   pry-rails
   quiet_assets
   rails (= 3.2.11)
