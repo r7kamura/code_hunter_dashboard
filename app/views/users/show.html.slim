@@ -1,0 +1,15 @@
+h3
+  i.icon-user
+  = current_user.nickname
+
+.summary.section
+  table.table.table-bordered.table-striped.report
+    tr
+      th brakeman count
+      td= @brakeman_warnings.count
+    tr
+      th rails_best_practices count
+      td= @rbp_warnings.count
+
+.warnings.section
+  = render "warnings/warnings", :warnings => @warnings, :report => @report
