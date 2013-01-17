@@ -1,4 +1,7 @@
-.warning
+.section.warning
+  h3
+    i.icon-stethoscope
+    | Warning Detail
   table.table
     thead
       tr
@@ -22,7 +25,7 @@
         td= @warning.modified_at
       tr
         td commited by
-        td= @warning.author
+        td #{@warning.author} (#{@warning.email})
       tr
         td detected at
         td= @warning.report.created_at

@@ -5,11 +5,4 @@ module ReportsHelper
     rows += reports.map {|report| "#{report.created_at},#{report.send(counter_column_name)}" }
     rows.join("\n")
   end
-
-  def rank_by_author_count(warnings)
-    ranks = {}
-    ranks.default = 0
-    warnings.each {|warning| ranks[warning.author] += 1 }
-    ranks.sort_by {|author, count| -count }
-  end
 end

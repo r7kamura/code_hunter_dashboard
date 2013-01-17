@@ -1,1 +1,49 @@
-= render "reports/recent_warnings", :report => @report
+.section
+  h3 What is this site?
+  p
+    ' We continuously monitor the metrics of your rails application.
+    br
+    ' If there are any bad code smells or possible security weakness,
+    ' a note will be posted here.
+    br
+    ' Let's try to keep our code quality!
+  p
+    = link_to user_path do
+      i.icon-double-angle-right
+      | visit your status page
+
+.section
+  h3 Current status
+  p
+    ' These counts are sampled periodically from the metrics tools
+    ' of Brakeman & RailsBestPractices.
+    br
+    ' Brakeman is a security weakness analyzer,
+    ' and RailsBestPractices is a code metric tool for rails projects.
+    br
+    ' For more detailed report information, please see
+    = link_to "the latest report page", latest_reports_path
+    ' .
+  .count
+    .value
+      = @report.brakeman_count
+    p Brakeman
+  .count
+    .value
+      = @report.rails_best_practices_count
+    p Rails Best Practices
+
+.section
+  h3 Recently added
+  table.warnings.table
+    thead
+      tr
+        th commit
+        th author
+        th message
+    tbody
+      - @report.warnings.limit(20).each do |warning|
+        tr
+          td= warning.modified_at.to_date
+          td= link_to warning.author, author_report_warnings_path(:report_id => @report.id, :author => warning.author)
+          td= link_to warning.message, warning

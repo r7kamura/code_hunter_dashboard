@@ -1,4 +1,6 @@
 $ ->
+  $('header .links a').tooltip()
+
   $('.tabbed_warnings').each ->
     container = $(this)
     warnings  = container.find('tbody tr')

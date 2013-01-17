@@ -16,10 +16,14 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to root_path unless logged_in?
+    redirect_to login_path unless logged_in?
   end
 
   def require_latest_report
     @report = Report.latest
+  end
+
+  def login_path
+    "/auth/github"
   end
 end

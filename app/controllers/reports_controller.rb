@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   protect_from_forgery
 
   before_filter :require_warnings_as_json, only: :create
-  before_filter :require_latest_report, :only => [:top, :dashboard, :latest]
+  before_filter :require_latest_report, :only => [:top, :stats, :latest]
 
   def index
     @reports = Report.descending.limit(20)
@@ -15,7 +15,7 @@ class ReportsController < ApplicationController
   def top
   end
 
-  def dashboard
+  def stats
     @reports = Report.descending.limit(100)
   end
 

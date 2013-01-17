@@ -3,7 +3,7 @@ CodeHunterDashboard::Application.routes.draw do
 
   resources :reports, :only => [:index, :show, :create] do
     collection do
-      get :dashboard
+      get :stats
       get :latest
       get :top
     end
@@ -22,6 +22,6 @@ CodeHunterDashboard::Application.routes.draw do
   controller :sessions do
     get "auth/:provider/callback" => :create
     get "auth/failure"            => :failure
-    delete "signout"              => :destroy
+    delete "logout"               => :destroy
   end
 end

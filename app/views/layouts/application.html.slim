@@ -8,12 +8,25 @@ html
 
   body class=absolute_css_class_names
     header
-      h1
-        = link_to "✘╹◡╹✘", root_path
+      .logo
+        = link_to root_path do
+          h1
+            i.icon-dashboard
+            | Code Hunter
+          h2
+            ' Metrics dashboard to hunt out weak spots
       ul.links
-        li= link_to "You", user_path
-        li= link_to "Latest", latest_reports_path
-        li= link_to "Reports", reports_path
+        li= link_to user_path, :title => "You" do
+          i.icon-user
+        li= link_to latest_reports_path, :title => "Latest" do
+          i.icon-file-alt
+        li= link_to stats_reports_path, :title => "Stats" do
+          i.icon-bar-chart
+        li= link_to reports_path, :title => "Reports" do
+          i.icon-list
+        - if logged_in?
+          li= link_to logout_path, :method => :delete, :title => "Logout" do
+            i.icon-signout
 
     .main
       = yield

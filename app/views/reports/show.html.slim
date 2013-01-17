@@ -1,7 +1,7 @@
 .summary.section
   h3
-    i.icon-bullhorn
-    | Summary
+    i.icon-file-alt
+    | Report
   table.table.table-bordered.table-striped.report
     tr
       th created
@@ -14,17 +14,4 @@
       td= @report.rails_best_practices_count
 
 .section
-  h3
-    i.icon-list
-    | Warnings
   = render "warnings/warnings", :report => @report, :warnings => @report.warnings
-
-.authors.section
-  h3
-    i.icon-user
-    | Ranking
-  table.table.table-bordered.table-striped.report
-    - rank_by_author_count(@report.warnings).each do |author, count|
-      tr
-        td= link_to author, author_report_warnings_path(:report_id => @report.id, :author => author)
-        td= count

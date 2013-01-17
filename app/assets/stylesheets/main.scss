@@ -8,27 +8,42 @@ header {
   overflow: hidden;
   margin-bottom: 50px;
 
-  h1 {
+  .logo {
     float: left;
-    line-height: 1;
-    font-size: 30px;
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: none;
+    i {
+      margin-right: .8em;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 0.5;
+    }
+
+    h2 {
+      font-size: 14px;
+      line-height: 1;
     }
   }
 
   .links {
     float: right;
-    line-height: 50px;
+    line-height: 70px;
     list-style: none;
+    font-size: 18px;
+
     li {
       display: inline-block;
       margin-right: 1em;
+    }
+
+    a {
+      color: steelblue;
     }
   }
 }
@@ -48,17 +63,20 @@ h3 {
   margin-bottom: 40px;
 }
 
-.reports_controller.dashboard_action {
-  .warnings {
-    margin: 0;
-    list-style: none;
-
-    i {
-      color: #ccc;
-    }
-  }
-}
-
 .tabbed_warnings {
   white-space: nowrap;
+}
+
+.reports_controller.top_action {
+  .count {
+    display: inline-block;
+    margin-right: 50px;
+    text-align: center;
+
+    .value {
+      line-height: 1;
+      font-size: 100px;
+      font-weight: bold;
+    }
+  }
 }
