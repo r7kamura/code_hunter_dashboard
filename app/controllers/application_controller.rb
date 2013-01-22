@@ -24,6 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def login_path
-    "/auth/github"
+    "#{root_path}auth/github"
   end
 end
