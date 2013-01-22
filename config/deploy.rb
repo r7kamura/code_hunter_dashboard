@@ -43,10 +43,13 @@ set :keep_releases, 5
 set :deploy_via, :copy
 set :bundle_without, [:development, :test, :capistrano]
 set :repository, "git@github.com:r7kamura/code_hunter_dashboard.git"
-set :user,      ENV["CAPISTRANO_USER"]
+set :user, ENV["CAPISTRANO_USER"]
 set :deploy_to, ENV["CAPISTRANO_DEPLOY_TO"]
+set :rake, "rake RAILS_ENV=#{rails_env}"
 
 server ENV["CAPISTRANO_SERVER"] || "dummy", :web, :app, :db, :primary => true
+
+before "deploy:finalize_update", "deploy:share_config"
 
 namespace :deploy do
   desc "Start unicorn server"
@@ -64,6 +67,17 @@ namespace :deploy do
     run "/etc/init.d/unicorn stop"
   end
 
+  desc "Copy shared/config/database.yml to current/config/"
+  task :share_config, :roles => :app do
+    filepath = "#{deploy_to}/shared/config/database.yml"
+    run "if [ -f #{filepath} ]; then cp -vf #{filepath} #{release_path}/config/; fi"
+  end
+
+  desc "Create database by rake db:create"
+  task :create_db, :roles => :db do
+    run "cd #{latest_release} && #{rake} db:create"
+  end
+
   # Overwrite deploy:assets:precompile to cancel precompilation unless assets changed
   namespace :assets do
     desc "Run the asset precompilation rake task if assets changed"
@@ -71,7 +85,7 @@ namespace :deploy do
       from = source.next_revision(current_revision)
       modified = capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
       if previous_release.nil? || modified
-        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+        run %Q{cd #{latest_release} && #{rake} #{asset_env} assets:precompile}
       else
         logger.info "Skipping asset pre-compilation because there were no asset changes"
       end
