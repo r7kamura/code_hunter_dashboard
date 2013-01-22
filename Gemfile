@@ -8,6 +8,7 @@ gem "thin"
 gem "font-awesome-sass-rails"
 gem "omniauth-github", :git => "git://github.com/intridea/omniauth-github.git"
 gem "settingslogic"
+gem "dotenv"
 
 group :development do
   gem "pry-rails"
@@ -20,10 +21,6 @@ group :test do
   gem "rspec-rails", ">=2.12.0"
   gem "factory_girl_rails", "~> 4.0"
   gem "response_code_matchers"
-end
-
-group :development, :test do
-  gem "dotenv"
 end
 
 group :production do
