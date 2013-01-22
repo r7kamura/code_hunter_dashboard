@@ -58,19 +58,21 @@ namespace :deploy do
   end
 
   desc "Restart unicorn server"
-  task :restart, :roles => :app do
+  task :restart do
     run "/etc/init.d/unicorn graceful"
   end
 
   desc "Stop unicorn servers"
-  task :stop, :roles => :app do
+  task :stop do
     run "/etc/init.d/unicorn stop"
   end
 
-  desc "Copy shared/config/database.yml to current/config/"
-  task :share_config, :roles => :app do
-    filepath = "#{deploy_to}/shared/config/database.yml"
-    run "if [ -f #{filepath} ]; then cp -vf #{filepath} #{release_path}/config/; fi"
+  desc "Share server specific config files into release path"
+  task :share_config do
+    dbyaml = "#{deploy_to}/shared/config/database.yml"
+    dotenv = "#{deploy_to}/shared/config/.env"
+    run "if [ -f #{dbyaml} ]; then cp -vf #{dbyaml} #{release_path}/config/; fi"
+    run "if [ -f #{dotenv} ]; then cp -vf #{dotenv} #{release_path}/; fi"
   end
 
   desc "Create database by rake db:create"
