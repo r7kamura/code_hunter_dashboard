@@ -1,4 +1,6 @@
 class Report < ActiveRecord::Base
+  attr_accessible :brakeman_count, :rails_best_practices_count, :pendaxes_count
+
   has_many :warnings, :order => "modified_at DESC"
 
   scope :descending, lambda {

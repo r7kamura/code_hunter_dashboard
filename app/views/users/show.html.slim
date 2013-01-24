@@ -10,6 +10,9 @@ h3
     tr
       th rails_best_practices count
       td= @rbp_warnings.count
+    tr
+      th pendaxes count
+      td= @pendaxes_warnings.count
 
 .warnings.section
   = render "warnings/warnings", :warnings => @warnings, :report => @report

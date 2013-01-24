@@ -3,13 +3,6 @@ class Warning < ActiveRecord::Base
 
   belongs_to :report
 
-  scope :brakeman, lambda {
-    where(:service => "brakeman")
-  }
-  scope :rails_best_practices, lambda {
-    where(:service => "rails_best_practices")
-  }
-
   after_create :increment_counter_cache
 
   def save(*)
@@ -20,8 +13,7 @@ class Warning < ActiveRecord::Base
   private
 
   def increment_counter_cache
-    if %w[brakeman rails_best_practices].include?(service)
-      report.increment!("#{service}_count")
-    end
+    attribute = "#{service}_count"
+    report.increment!(attribute) if report.respond_to?(attribute)
   end
 end

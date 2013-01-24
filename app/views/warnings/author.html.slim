@@ -11,6 +11,9 @@ h3
     tr
       th rails_best_practices count
       td= @warnings.select {|warning| warning.service == "rails_best_practices" }.count
+    tr
+      th pendaxes count
+      td= @warnings.select {|warning| warning.service == "pendaxes" }.count
 
 .warnings.section
   = render "warnings/warnings", :warnings => @warnings, :report => @report

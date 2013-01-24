@@ -8,9 +8,11 @@
         th created_at
         th brakeman
         th rails_best_practices
+        th pendaxes
     tbody
       - @reports.each do |report|
         tr
           td= link_to report.created_at, report
           td= report.brakeman_count
           td= report.rails_best_practices_count
+          td= report.pendaxes_count

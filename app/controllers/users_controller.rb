@@ -5,5 +5,6 @@ class UsersController < ApplicationController
     @warnings          = @report.warnings.where(:email => current_user.email)
     @brakeman_warnings = @warnings.select {|warning| warning.service == "brakeman" }
     @rbp_warnings      = @warnings.select {|warning| warning.service == "rails_best_practices" }
+    @pendaxes_warnings = @warnings.select {|warning| warning.service == "pendaxes" }
   end
 end
