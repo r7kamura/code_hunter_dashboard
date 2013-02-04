@@ -1,7 +1,12 @@
+html {
+  background: url("/assets/grunge.png");
+}
+
 body {
   width: 920px;
   margin: 0 auto;
   padding: 20px;
+  background: inherit;
 }
 
 header {
