@@ -52,7 +52,16 @@
     ' a note will be posted here.
     br
     ' Let's try to keep our code quality!
-  p
-    = link_to user_path do
-      i.icon-double-angle-right
-      | Your status page
+  ul.links
+    li= link_to user_path do
+      i.icon-user
+      | Your status
+    li= link_to latest_reports_path do
+      i.icon-file-alt
+      | Latest report
+    li= link_to stats_reports_path do
+      i.icon-bar-chart
+      | Statistics
+    li= link_to reports_path do
+      i.icon-list
+      | All reports
