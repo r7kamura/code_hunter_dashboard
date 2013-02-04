@@ -3,14 +3,15 @@
     i.icon-stethoscope
     | Warning Detail
   table.table
-    thead
-      tr
-        th type
-        th value
     tbody
+      tr.message
+        td colspan=2
+          = @warning.message
       tr
-        td message
-        td= @warning.message
+        td type
+        td
+          .label class="label-#{@warning.severity}"
+            = @warning.type
       tr
         td file
         td= link_to_if @warning.github_file_path, @warning.path, @warning.github_file_path, :target => "_blank"

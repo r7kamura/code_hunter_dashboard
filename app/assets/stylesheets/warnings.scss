@@ -1,0 +1,14 @@
+.warnings_controller.show_action {
+  .main {
+    table {
+      margin-top: 30px;
+    }
+
+    .message td {
+      border-top: none;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #b94a48;
+    }
+  }
+}
