@@ -30,6 +30,33 @@ class Warning < ActiveRecord::Base
     SERVICE_SEVERITY_TABLE[service]
   end
 
+  def github_file_path
+    if Settings.github.repository
+      [
+        "https:/",
+        Settings.github.host,
+        Settings.github.repository,
+        "blob",
+        Settings.github.branch,
+        Settings.github.rails_root,
+        path,
+        "#L#{line}"
+      ].compact.join("/")
+    end
+  end
+
+  def github_commit_path
+    if Settings.github.repository
+      [
+        "https:/",
+        Settings.github.host,
+        Settings.github.repository,
+        "commit",
+        sha1,
+      ].join("/")
+    end
+  end
+
   private
 
   def increment_counter_cache

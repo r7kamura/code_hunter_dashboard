@@ -13,13 +13,13 @@
         td= @warning.message
       tr
         td file
-        td= @warning.path
+        td= link_to_if @warning.github_file_path, @warning.path, @warning.github_file_path, :target => "_blank"
       tr
         td line
         td= @warning.line
       tr
         td commit
-        td= @warning.sha1
+        td= link_to_if @warning.github_commit_path, @warning.sha1, @warning.github_commit_path, :target => "_blank"
       tr
         td commited at
         td= @warning.modified_at

@@ -3,6 +3,9 @@ defaults: &defaults
     client_id: <%= ENV["GITHUB_CLIENT_ID"] %>
     client_secret: <%= ENV["GITHUB_CLIENT_SECRET"] %>
     host: <%= ENV["GITHUB_HOST"] || "github.com" %>
+    repository: <%= ENV["GITHUB_REPOSITORY"] %>
+    rails_root: <%= ENV["GITHUB_RAILS_ROOT"] %>
+    branch: <%= ENV["GITHUB_BRANCH"] || "master" %>
 
 development:
   <<: *defaults
