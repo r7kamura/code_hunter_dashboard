@@ -1,18 +1,23 @@
-h3
-  i.icon-user
-  | Your status
+.section
+  h3
+    i.icon-user
+    | #{current_user.nickname}'s status
+  .counts
+    .count
+      .value
+        = @brakeman_warnings.count
+      p Brakeman
+    .count
+      .value
+        = @rbp_warnings.count
+      p Rails Best Practices
+    .count
+      .value
+        = @pendaxes_warnings.count
+      p Pendaxes
 
-.summary.section
-  table.table.table-bordered.table-striped.report
-    tr
-      th brakeman count
-      td= @brakeman_warnings.count
-    tr
-      th rails_best_practices count
-      td= @rbp_warnings.count
-    tr
-      th pendaxes count
-      td= @pendaxes_warnings.count
-
-.warnings.section
+.section
+  h3
+    i.icon-list
+    | Details
   = render "warnings/warnings", :warnings => @warnings, :report => @report

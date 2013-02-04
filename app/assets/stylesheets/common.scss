@@ -10,9 +10,41 @@ h3 {
 }
 
 .section {
-  margin-bottom: 40px;
+  $padding: 20px;
+  $border: 3px;
+
+  background: white;
+  border: solid 1px #ddd;
+  border-radius: .3em;
+  margin-bottom: 2em;
+  padding: $padding;
+
+  h3 {
+    border-left: solid $border #ddd;
+    margin-left: -$padding;
+    padding-left: $padding - $border;
+  }
+}
+
+.counts .count {
+  display: inline-block;
+  margin-right: 50px;
+  text-align: center;
+
+  .value {
+    line-height: 1;
+    font-size: 100px;
+    font-weight: bold;
+  }
+}
+
+table.warnings {
+  .author,
+  .date {
+    white-space: nowrap;
+  }
 }
 
 .tabbed_warnings {
-  white-space: nowrap;
+  margin-top: 1em;
 }

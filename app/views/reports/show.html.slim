@@ -1,20 +1,23 @@
-.summary.section
+.section
   h3
     i.icon-file-alt
-    | Report
-  table.table.table-bordered.table-striped.report
-    tr
-      th created
-      td= @report.created_at
-    tr
-      th brakeman count
-      td= @report.brakeman_count
-    tr
-      th rails_best_practices count
-      td= @report.rails_best_practices_count
-    tr
-      th pendaxes count
-      td= @report.pendaxes_count
+    | Report##{@report.id} status
+  .counts
+    .count
+      .value
+        = @report.brakeman_count
+      p Brakeman
+    .count
+      .value
+        = @report.rails_best_practices_count
+      p Rails Best Practices
+    .count
+      .value
+        = @report.pendaxes_count
+      p Pendaxes
 
 .section
+  h3
+    i.icon-list
+    | Details
   = render "warnings/warnings", :report => @report, :warnings => @report.warnings

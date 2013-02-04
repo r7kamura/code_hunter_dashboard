@@ -24,4 +24,8 @@ class Report < ActiveRecord::Base
   def brakeman
     warnings.brakeman
   end
+
+  def time
+    created_at.strftime("%Y-%m-%d %H:%M")
+  end
 end

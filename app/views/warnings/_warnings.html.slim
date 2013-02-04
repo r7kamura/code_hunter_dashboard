@@ -4,15 +4,19 @@
     li= link_to "brakeman", ""
     li= link_to "rails_best_practices", ""
     li= link_to "pendaxes", ""
-  table.table
+  table.table.warnings
     thead
       tr
-        th commit
-        th author
-        th path
+        th Commit
+        th Author
+        th Type
+        th Message
     tbody
       - warnings.each do |warning|
         tr.all class=warning.service
           td.date= warning.modified_at.to_date
           td.author= link_to warning.author, author_report_warnings_path(:report_id => report.id, :author => warning.author)
-          td.path= link_to warning.path, warning
+          td
+            .label class="label-#{warning.severity}"
+              = warning.type
+          td.message= link_to warning.message, warning
