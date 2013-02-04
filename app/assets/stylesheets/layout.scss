@@ -47,36 +47,3 @@ header {
     }
   }
 }
-
-i[class^="icon-"] {
-  line-height: 1.2;
-}
-
-h3 {
-  line-height: 1.3;
-  i {
-    margin-right: .8em;
-  }
-}
-
-.section {
-  margin-bottom: 40px;
-}
-
-.tabbed_warnings {
-  white-space: nowrap;
-}
-
-.reports_controller.top_action {
-  .count {
-    display: inline-block;
-    margin-right: 50px;
-    text-align: center;
-
-    .value {
-      line-height: 1;
-      font-size: 100px;
-      font-weight: bold;
-    }
-  }
-}
