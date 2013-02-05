@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   protect_from_forgery
 
+  skip_before_filter :require_login, :only => :create
   before_filter :require_warnings_as_json, only: :create
   before_filter :require_latest_report, :only => [:top, :stats, :latest]
 

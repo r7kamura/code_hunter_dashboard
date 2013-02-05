@@ -12,6 +12,10 @@
         td
           .label class="label-#{@warning.severity}"
             = @warning.type
+      - if @warning.url
+        tr
+          td Reference
+          td= link_to @warning.url, @warning.url, :target => "_blank"
       tr
         td file
         td= link_to_if @warning.github_file_path, @warning.path, @warning.github_file_path, :target => "_blank"

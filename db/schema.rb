@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205014653) do
+ActiveRecord::Schema.define(:version => 20130205061904) do
 
   create_table "reports", :force => true do |t|
     t.integer  "brakeman_count",             :default => 0
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130205014653) do
     t.integer  "report_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "url"
   end
 
   add_index "warnings", ["report_id", "modified_at"], :name => "index_warnings_on_report_id_and_modified_at"

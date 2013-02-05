@@ -11,7 +11,7 @@ class Warning < ActiveRecord::Base
     "brakeman"             => "important",
   }
 
-  attr_accessible :author, :email, :line, :message, :modified_at, :path, :service, :sha1
+  attr_accessible :author, :email, :line, :message, :modified_at, :path, :service, :sha1, :url
 
   belongs_to :report
 
