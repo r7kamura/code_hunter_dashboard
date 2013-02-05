@@ -1,19 +1,24 @@
-h3
-  i.icon-user
-  = params[:author]
-
-
-.summary.section
-  table.table.table-bordered.table-striped.report
-    tr
-      th brakeman count
-      td= @warnings.select {|warning| warning.service == "brakeman" }.count
-    tr
-      th rails_best_practices count
-      td= @warnings.select {|warning| warning.service == "rails_best_practices" }.count
-    tr
-      th pendaxes count
-      td= @warnings.select {|warning| warning.service == "pendaxes" }.count
+.section
+  h3
+    i.icon-user
+    = params[:author]
+    | 's status
+  .counts
+    .count
+      .value
+        = @warnings.select {|warning| warning.service == "brakeman" }.count
+      p Brakeman
+    .count
+      .value
+        = @warnings.select {|warning| warning.service == "rails_best_practices" }.count
+      p Rails Best Practices
+    .count
+      .value
+        = @warnings.select {|warning| warning.service == "pendaxes" }.count
+      p Pendaxes
 
 .warnings.section
+  h3
+    i.icon-list
+    | Details
   = render "warnings/warnings", :warnings => @warnings, :report => @report
