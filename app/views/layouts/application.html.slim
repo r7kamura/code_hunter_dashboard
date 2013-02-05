@@ -17,7 +17,10 @@ html
             ' Metrics dashboard to hunt out weak spots
       ul.links
         li= link_to user_path, :title => "You" do
-          = image_tag current_user.image, :size => "25x25"
+          - if current_user.image
+            = image_tag current_user.image, :size => "25x25"
+          - else
+            i.icon-user
         li= link_to latest_reports_path, :title => "Latest" do
           i.icon-file-alt
         li= link_to stats_reports_path, :title => "Stats" do
