@@ -40,15 +40,19 @@ header {
     float: right;
     line-height: 70px;
     list-style: none;
-    font-size: 18px;
+    font-size: 25px;
 
     li {
       display: inline-block;
-      margin-right: 1em;
+      margin-left: 1em;
     }
 
     a {
       color: steelblue;
+    }
+
+    img {
+      margin-top: -5px;
     }
   }
 }

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :login_path
 
   private
 
@@ -21,9 +21,5 @@ class ApplicationController < ActionController::Base
 
   def require_latest_report
     @report = Report.latest
-  end
-
-  def login_path
-    "#{root_path}auth/github"
   end
 end

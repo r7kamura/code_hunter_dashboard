@@ -16,8 +16,12 @@ html
           h2
             ' Metrics dashboard to hunt out weak spots
       ul.links
-        li= link_to user_path, :title => "You" do
-          i.icon-user
+        - if logged_in?
+          li= link_to user_path, :title => "You" do
+            = image_tag current_user.image, :size => "25x25"
+        - else
+          li= link_to login_path, :title => "Login" do
+            i.icon-signin
         li= link_to latest_reports_path, :title => "Latest" do
           i.icon-file-alt
         li= link_to stats_reports_path, :title => "Stats" do

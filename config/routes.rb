@@ -1,6 +1,8 @@
 CodeHunterDashboard::Application.routes.draw do
   root :to => "reports#top"
 
+  get "/login" => redirect("/auth/github"), :as => :login
+
   resources :reports, :only => [:index, :show, :create] do
     collection do
       get :stats

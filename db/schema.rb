@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124015713) do
+ActiveRecord::Schema.define(:version => 20130205014653) do
 
   create_table "reports", :force => true do |t|
     t.integer  "brakeman_count",             :default => 0
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130124015713) do
     t.string   "uid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image"
   end
 
   add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid", :unique => true
