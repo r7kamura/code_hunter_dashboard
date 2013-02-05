@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_login, :require_latest_report
+  before_filter :require_latest_report
 
   def show
     @warnings          = @report.warnings.where(:email => current_user.email)
