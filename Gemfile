@@ -9,6 +9,7 @@ gem "font-awesome-sass-rails"
 gem "omniauth-github", :git => "git://github.com/intridea/omniauth-github.git"
 gem "settingslogic"
 gem "dotenv"
+gem "github_api"
 
 group :development do
   gem "pry-rails"
