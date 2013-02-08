@@ -1,6 +1,14 @@
 require "spec_helper"
 
 describe ReportsController do
+  before do
+    controller.stub(:current_user => User.create)
+  end
+
+  let!(:report) do
+    Report.create
+  end
+
   describe "#index" do
     subject do
       get :index
@@ -10,7 +18,7 @@ describe ReportsController do
 
   describe "#show" do
     subject do
-      get :show, :id => Report.create.id
+      get :show, :id => report.id
     end
     it { should be_ok }
   end
@@ -18,10 +26,6 @@ describe ReportsController do
   describe "#latest" do
     subject do
       get :latest
-    end
-
-    before do
-      Report.create
     end
 
     it { should be_ok }
