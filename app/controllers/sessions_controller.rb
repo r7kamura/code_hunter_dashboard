@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    render :text => "Successfully logged out"
+    render :logout
   end
 
   def failure
