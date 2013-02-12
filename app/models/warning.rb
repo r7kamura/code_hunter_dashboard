@@ -2,7 +2,7 @@ class Warning < ActiveRecord::Base
   SERVICE_TYPE_TABLE = {
     "rails_best_practices" => "Bad Smell",
     "pendaxes"             => "Pending",
-    "brakeman"             => "Secutiry",
+    "brakeman"             => "Security",
   }
 
   SERVICE_SEVERITY_TABLE = {
