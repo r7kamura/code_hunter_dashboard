@@ -53,8 +53,14 @@ CodeHunterDashboard::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.smtp_settings = {}
+
   if Settings.smtp.address
-    config.action_mailer.smtp_settings.address = Settings.smtp.address
+    config.action_mailer.smtp_settings[:address] = Settings.smtp.address
+  end
+
+  if Settings.smtp.domain
+    config.action_mailer.smtp_settings[:domain] = Settings.smtp.domain
   end
 
   # Enable threaded mode

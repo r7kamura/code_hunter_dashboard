@@ -5,6 +5,7 @@ defaults: &defaults
     from: <%= ENV["MAILER_FROM"] || "from@example.com" %>
   smtp:
     address: <%= ENV["SMTP_ADDRESS"] %>
+    domain: <%= ENV["SMTP_DOMAIN"] %>
   github:
     client_id: <%= ENV["GITHUB_CLIENT_ID"] %>
     client_secret: <%= ENV["GITHUB_CLIENT_SECRET"] %>
