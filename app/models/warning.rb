@@ -17,6 +17,8 @@ class Warning < ActiveRecord::Base
 
   after_create :increment_counter_cache
 
+  scope :recently_modified, lambda { order("modified_at DESC") }
+
   def save(*)
     self[:modified_at] = Time.at(modified_at + 9.hours) if modified_at.is_a? Fixnum
     super
@@ -37,10 +39,9 @@ class Warning < ActiveRecord::Base
         Settings.github.host,
         Settings.github.repository,
         "blob",
-        Settings.github.branch,
+        sha1,
         Settings.github.rails_root,
-        path,
-        "#L#{line}"
+        "#{path}#L#{line}"
       ].compact.join("/")
     end
   end
@@ -55,6 +56,10 @@ class Warning < ActiveRecord::Base
         sha1,
       ].join("/")
     end
+  end
+
+  def path_with_line
+    [path, line].join(":")
   end
 
   private
