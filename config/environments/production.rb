@@ -51,6 +51,12 @@ CodeHunterDashboard::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.delivery_method = :smtp
+
+  if Settings.smtp.address
+    config.action_mailer.smtp_settings.address = Settings.smtp.address
+  end
+
   # Enable threaded mode
   # config.threadsafe!
 

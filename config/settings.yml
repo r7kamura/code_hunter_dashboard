@@ -1,4 +1,10 @@
 defaults: &defaults
+  code_hunter:
+    host: <%= ENV["CODE_HUNTER_HOST"] %>
+  mailer:
+    from: <%= ENV["MAILER_FROM"] || "from@example.com" %>
+  smtp:
+    address: <%= ENV["SMTP_ADDRESS"] %>
   github:
     client_id: <%= ENV["GITHUB_CLIENT_ID"] %>
     client_secret: <%= ENV["GITHUB_CLIENT_SECRET"] %>

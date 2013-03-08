@@ -19,6 +19,8 @@ class Warning < ActiveRecord::Base
 
   scope :recently_modified, lambda { order("modified_at DESC") }
 
+  scope :modified_in_this_week, lambda { where(:modified_at => (Time.now - 7.days) .. Time.now) }
+
   def save(*)
     self[:modified_at] = Time.at(modified_at + 9.hours) if modified_at.is_a? Fixnum
     super
@@ -41,7 +43,7 @@ class Warning < ActiveRecord::Base
         "blob",
         sha1,
         Settings.github.rails_root,
-        "#{path}#L#{line}"
+        %<#{path}#{"#L#{line}" if line}>
       ].compact.join("/")
     end
   end
@@ -59,7 +61,7 @@ class Warning < ActiveRecord::Base
   end
 
   def path_with_line
-    [path, line].join(":")
+    [path, line].compact.join(":")
   end
 
   private

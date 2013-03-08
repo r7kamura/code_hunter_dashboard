@@ -1,0 +1,12 @@
+CodeHunter detected some warnings from your recent changes ;(
+<%= root_url(:host => Settings.code_hunter.host) %>
+
+
+<%- @warnings.each do |warning| %>
+<%= raw warning.message %>
+<%= warning.path_with_line %>
+<%= "committed on #{warning.modified_at.to_date} / #{warning.service}" %>
+<%= warning_url(warning, :host => Settings.code_hunter.host) %>
+
+
+<%- end %>
