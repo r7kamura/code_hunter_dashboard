@@ -63,6 +63,10 @@ CodeHunterDashboard::Application.configure do
     config.action_mailer.smtp_settings[:domain] = Settings.smtp.domain
   end
 
+  if Settings.code_hunter.host
+    config.action_mailer.default_url_options = { :host => Settings.code_hunter.host }
+  end
+
   # Enable threaded mode
   # config.threadsafe!
 
