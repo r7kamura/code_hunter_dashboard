@@ -10,6 +10,7 @@ gem "omniauth-github", :git => "git://github.com/intridea/omniauth-github.git"
 gem "settingslogic"
 gem "dotenv"
 gem "github_api"
+gem "code_hunter", :git => "git://github.com/r7kamura/code_hunter.git", :ref => "0f1f8f479703c3b18869b3e0b112468703baf20e"
 
 group :development do
   gem "pry-rails"
