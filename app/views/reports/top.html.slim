@@ -5,15 +5,15 @@
   .counts
     .count
       .value
-        = @report.brakeman_count
+        = @report.brakeman_count || 0
       p Brakeman
     .count
       .value
-        = @report.rails_best_practices_count
+        = @report.rails_best_practices_count || 0
       p Rails Best Practices
     .count
       .value
-        = @report.pendaxes_count
+        = @report.pendaxes_count || 0
       p Pendaxes
 
 .section
