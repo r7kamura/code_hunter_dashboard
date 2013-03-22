@@ -17,6 +17,24 @@
       p Pendaxes
 
 .section
+  div
+    h3
+      i.icon-plus
+      | Added
+    ul
+      - @report.added_warnings.each do |warning|
+        li
+          = link_to warning.message, warning
+  .div
+    h3
+      i.icon-minus
+      | Removed
+    ul
+      - @report.removed_warnings.each do |warning|
+        li
+          = link_to warning.message, warning
+
+.section
   h3
     i.icon-list
     | Details

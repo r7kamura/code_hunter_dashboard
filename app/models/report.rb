@@ -28,4 +28,24 @@ class Report < ActiveRecord::Base
   def time
     created_at.strftime("%Y-%m-%d %H:%M")
   end
+
+  def added_warnings
+    hash = previous_warnings.group_by(&:sha1)
+    warnings.reject {|warning| hash[warning.sha1] }
+  end
+
+  def removed_warnings
+    hash = warnings.group_by(&:sha1)
+    previous_warnings.reject {|warning| hash[warning.sha1] }
+  end
+
+  private
+
+  def previous
+    self.class.where("created_at < ?", created_at).descending.first
+  end
+
+  def previous_warnings
+    previous.try(:warnings) || []
+  end
 end
